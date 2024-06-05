@@ -1,4 +1,9 @@
-# IsankstineUzduotis
+# Isankstine Uzduotis
+
+## Programos veikimo principas
+- Ši programa nuskaito pateikto failo eilutes ir jas apdoroja.
+- Apdorojimas: Eilutės išskaidomos į žodžius, pašalinami simboliai, skaičiuojamas žodžio pasikartojimas bei išsaugomas eilutės numeris, kuriame žodis pasikartoja, išrenkami URL adresai.
+- Išvedimas: URL adresai, žodis ir jo pasikartojimo skaičius (pasikartojimas>1), žodis ir eilutės numeriai, kuriose pasikartoja
 
 # Naudotojo vadovas
 
