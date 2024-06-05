@@ -27,9 +27,9 @@ void file(string &duomPav)
     }  
 }
 
-vector<string> readFile (string& filename) {
+vector<string> readFile (string& fileName) {
     vector<string> lines;
-    ifstream file(filename);
+    ifstream file(fileName);
     string line;
     while (getline(file, line)) {
         lines.push_back(line);
@@ -66,7 +66,7 @@ map<string, int> countWords(vector<string>& lines) {
 
 map<string, vector<int>> generateCrossReference(vector<string>& lines) {
     map<string, vector<int>> crossRef;
-    for (int i = 0; i < lines.size(); ++i) {
+    for (int i = 0; i < static_cast<int>(lines.size()); ++i) {
         vector<string> words = tokenize(lines[i]);
         for (auto& word : words) {
             if (crossRef[word].empty() || crossRef[word].back() != i + 1) {
@@ -93,20 +93,35 @@ vector<string> extractUrls(vector<string>& lines) {
 
 void writeFile(vector<string>& urls, map<string, int>& wordCount, map<string, vector<int>>& crossRef, string& fileName) {
     ofstream file(fileName);
-    file << "URL adresai\n" << endl;
+    file << "URL adresai" << endl;
+     for(int i=1; i<=28; i++)
+    {
+        file<<"-";
+    }
+    file<<endl;
     for (auto& url : urls) {
         file << url << "\n";
     }
-    file << fixed << setw(20) <<"Zodis" << "Kiekis" << endl;
+    file << endl << fixed << setw(20) << left <<"Zodis" << "| Kiekis" << endl;
+    for(int i=1; i<=28; i++)
+    {
+        file<<"-";
+    }
+    file<<endl;
     for (auto& pair : wordCount) {
         if (pair.second > 1) {
-            file << pair.first << ": " << pair.second << "\n";
+            file << fixed << setw(20) << left << pair.first <<"| "<< pair.second << "\n";
         }
     }
-    file <<endl<< "Cross-reference" <<endl;
+    file <<endl<<  "Cross-reference" <<endl <<fixed << setw(20) << left <<"Zodis" << "| Eilutes numeris, kurioje yra zodis" << endl;
+     for(int i=1; i<=56; i++)
+    {
+        file<<"-";
+    }
+    file<<endl;
     for (auto& pair : crossRef) {
         if (pair.second.size() > 1) {
-            file << pair.first << ": ";
+            file << fixed << setw(20) << left << pair.first << "| ";
             for (auto& line : pair.second) {
                 file << line << " ";
             }

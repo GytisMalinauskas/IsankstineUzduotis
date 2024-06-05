@@ -16,3 +16,6 @@
 *.iml
 .DS_Store
 Thumbs.db
+
+#rezultatai
+rezultatai.txt
