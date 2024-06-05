@@ -93,14 +93,17 @@ vector<string> extractUrls(vector<string>& lines) {
 
 void writeFile(vector<string>& urls, map<string, int>& wordCount, map<string, vector<int>>& crossRef, string& fileName) {
     ofstream file(fileName);
+    file << "URL adresai\n" << endl;
     for (auto& url : urls) {
         file << url << "\n";
     }
+    file << fixed << setw(20) <<"Zodis" << "Kiekis" << endl;
     for (auto& pair : wordCount) {
         if (pair.second > 1) {
             file << pair.first << ": " << pair.second << "\n";
         }
     }
+    file <<endl<< "Cross-reference" <<endl;
     for (auto& pair : crossRef) {
         if (pair.second.size() > 1) {
             file << pair.first << ": ";

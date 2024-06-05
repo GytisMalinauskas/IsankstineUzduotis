@@ -10,6 +10,7 @@
 #include <regex>
 #include <cctype>
 #include <algorithm>
+#include <iomanip>
 using namespace std;
 
 void file(string &duomPav);
